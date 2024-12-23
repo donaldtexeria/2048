@@ -2,6 +2,7 @@
     justify-content: center;
     background-color: aqua;
     display: flex;
+    flex-direction: column;
 }
 .box {
     background-color: #bbada0;
@@ -16,15 +17,29 @@
 }
 
 .tile {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-color: bisque;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 
 .row{
     display: flex;
+    padding: 5px;
+    justify-content: space-between;
 }
+
+.head-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.head-row .tile{
+    font-size: 2rem;
+}
+

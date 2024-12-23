@@ -73,6 +73,10 @@ function Game() {
 
   return (
     <div className="container">
+      <div className="head-row">
+        <h1 className="title">2048</h1>
+        <div>Score</div>
+      </div>
       <div className="box">
         {grid.map((row, rowIndex) => (
           <div className="row" key={rowIndex}>
