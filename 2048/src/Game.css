@@ -4,17 +4,26 @@
     display: flex;
 }
 .box {
-    background-color: blue;
+    background-color: #bbada0;
     max-width: 800px;
     max-height: 800px;
     min-width: 400px;
     min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .tile {
-    width: 10%;
-    height: 10%;
+    width: 100px;
+    height: 100px;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .row{
     display: flex;
