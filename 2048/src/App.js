@@ -5,7 +5,6 @@ import Game from "./game";
 function App() {
   return (
     <div className="App">
-      Penis
       <Game />
     </div>
   );

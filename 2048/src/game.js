@@ -3,11 +3,18 @@ import { initializeGrid, moveTiles, mergeTiles } from "./utils/gameLogic";
 import React, { useState, useEffect } from "react";
 function Game() {
   const [grid, setGrid] = useState(initializeGrid());
+  const [score, setScore] = useState(0);
 
   const handleMove = (direction) => {
     console.log("move triggered");
-    const newGrid = moveTiles(grid, direction);
-    setGrid(newGrid);
+    const res = moveTiles(grid, direction, score);
+    setGrid(res.newGrid);
+    setScore(res.s);
+  };
+
+  const handleNewGame = () => {
+    setGrid(initializeGrid());
+    setScore(0);
   };
 
   const getTileStyle = (value) => {
@@ -75,14 +82,24 @@ function Game() {
     <div className="container">
       <div className="head-row">
         <h1 className="title">2048</h1>
-        <div>Score</div>
+        <div className="score">
+          Score <br /> {score}
+        </div>
+      </div>
+      <div className="info-row">
+        <p style={{ textAlign: "left" }}>
+          <span>Play 2048 Game Online</span> <br />
+          Join the numbers and get to the <span>2048 Tile!</span>
+        </p>
+
+        <button onClick={handleNewGame}>New Game</button>
       </div>
       <div className="box">
         {grid.map((row, rowIndex) => (
           <div className="row" key={rowIndex}>
             {row.map((tile, colIndex) => (
               <div className="tile" key={colIndex} style={getTileStyle(tile)}>
-                {tile}
+                {tile === 0 ? "" : tile}
               </div>
             ))}
           </div>

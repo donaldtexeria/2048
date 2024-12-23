@@ -1,8 +1,8 @@
 .container {
     justify-content: center;
-    background-color: aqua;
     display: flex;
     flex-direction: column;
+    padding: 50px;
 }
 .box {
     background-color: #bbada0;
@@ -17,14 +17,15 @@
 }
 
 .tile {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     background-color: bisque;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     padding: 10px;
+    font-size: 3rem;
 }
 
 
@@ -37,9 +38,37 @@
 .head-row{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.head-row .tile{
-    font-size: 2rem;
+.head-row .title{
+    font-size: 6rem;
+    margin: 0;
 }
 
+.info-row{
+    display: flex;
+    justify-content: space-between;
+}
+.info-row p span{
+    font-weight: 700;
+    margin: 0;
+}
+
+.info-row button{
+    border-radius: 5px;
+    background-color: #8f7a66;
+    padding: 0 14px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.score {
+    background-color: #bbada0;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+}

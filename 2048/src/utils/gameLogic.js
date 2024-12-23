@@ -39,7 +39,8 @@ const areGridsEqual = (grid1, grid2) => {
   return true;
 };
 
-export const moveTiles = (grid, direction) => {
+export const moveTiles = (grid, direction, score) => {
+  let s = score;
   let newGrid = [...grid.map((row) => [...row])]; // Deep copy
   let changed = false;
   switch (direction) {
@@ -52,6 +53,7 @@ export const moveTiles = (grid, direction) => {
           }
           if (fRow[i] == fRow[i + 1]) {
             fRow[i] *= 2;
+            s += fRow[i];
             fRow[i + 1] = 0;
           }
         }
@@ -71,6 +73,7 @@ export const moveTiles = (grid, direction) => {
           }
           if (fRow[i] == fRow[i - 1]) {
             fRow[i] *= 2;
+            s += fRow[i];
             fRow[i - 1] = 0;
           }
         }
@@ -90,6 +93,7 @@ export const moveTiles = (grid, direction) => {
           }
           if (fRow[i] == fRow[i + 1]) {
             fRow[i] *= 2;
+            s += fRow[i];
             fRow[i + 1] = 0;
           }
         }
@@ -110,6 +114,7 @@ export const moveTiles = (grid, direction) => {
           }
           if (fRow[i] == fRow[i - 1]) {
             fRow[i] *= 2;
+            s += fRow[i];
             fRow[i - 1] = 0;
           }
         }
@@ -124,7 +129,7 @@ export const moveTiles = (grid, direction) => {
       break;
   }
   if (areGridsEqual(newGrid, grid)) {
-    return newGrid;
+    return { newGrid, s };
   }
   while (true) {
     let ind = Math.trunc(Math.random() * 16);
@@ -134,7 +139,7 @@ export const moveTiles = (grid, direction) => {
     }
   }
 
-  return newGrid;
+  return { newGrid, s };
 };
 
 export const mergeTiles = (grid) => {
